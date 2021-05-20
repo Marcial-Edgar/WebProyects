@@ -1,0 +1,85 @@
+.lineup {
+    background-color: $rosa;
+    padding: $separacion 0;
+
+    h3,p {
+        text-align: center;
+        color: $blanco;
+    }
+
+    .dia {
+        text-transform: uppercase;
+        margin: $separacion 0;
+    }
+}
+
+.escenarios-contenedor {
+    @include tablet {
+        @include grid(2, $separacion);
+    }
+
+    .escenario {
+        padding-top: $separacion / 2;
+    }
+
+    .nombre-escenario {
+        color: $negro;
+        font-size: 2rem;
+        font-weight: $delgada;
+
+        &:after {
+            // siempre que se trabaja con un after tiene que llevar un content
+            content: '';
+            // las propiedades abajo es son como para generar un template en donde iran los iconos
+            width: 20rem;
+            height: 10rem;
+            display: block;
+            // background-color: $morado;
+            margin: 2rem auto 0 auto;
+            background-size: 15rem;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
+}
+
+.edm .nombre-escenario {
+    &:after {
+        background-image: url(../img/icono_edm.png);
+    }
+}
+
+.rock .nombre-escenario {
+    &:after {
+        background-image: url(../img/icono_rock.png);
+    }
+}
+
+.calendario {
+    padding: 0;
+    list-style: none;
+
+    li {
+        padding: $separacion / 2;
+        font-weight: $bold;
+
+        span {
+            font-weight: $regular;
+        }
+    }
+}
+
+/* forma 1 para poner un color mas intenso y otro no y asi sucesivamente en la lista
+ * el significado de 2n+1 es: 
+   2(0) + 1 = 1, entonces le aplica el rojo al primer elemento de la lista
+   2(1) + 1 = 3, entonces le aplica el rojo al tercer elemento de la lista
+ * tambien puedes utilizar entre parentesis la propiedad odd y eso traducido al ingles son todos los numeros nones
+ * darken es un funcion exclusiva de sass, el primer valor que toma es el color y el segundo valor es la intensidad de "negro" que aplica a ese color
+*/
+.bg-verde .calendario li:nth-child(odd) {
+    background-color: darken($verde, 10);
+}
+
+.bg-amarillo .calendario li:nth-child(odd) {
+    background-color: darken($amarillo, 10);
+} 

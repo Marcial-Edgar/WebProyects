@@ -1,0 +1,52 @@
+.header {
+  background-color: $verde;
+
+  .contenido-header {
+    padding: $separacion / 2 0;
+
+    @include tablet {
+      // esta es otra forma de mandar propiedades para que funcione el media querie y es mas dinamico
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    /* una forma de hacer que funcione el media querie es mover las propiedades al media querie que creamos en el mixin
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        */
+  }
+
+  h1 {
+    color: $blanco;
+    margin-bottom: 1rem;
+    text-align: center;
+    @include tablet {
+      margin-bottom: 0;
+    }
+    /* ejemplo de como se mandan llamar los mixin
+        @include nuevoMixin; // asi se mandan llamar los mixin que creas y puedes reutilizarlo en otros elementos
+        @include nuevoMixin2(uppercase, 3rem); // asi se mandan llamar los mixin que creas y que lleven parametros
+        */
+  }
+
+  &.fijo {
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 .3rem .4rem #444;
+  }
+}
+
+.navegacion-principal {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  a {
+    color: $blanco;
+    font-size: 2rem;
+
+    &:hover {
+      color: $amarillo;
+    }
+  }
+}

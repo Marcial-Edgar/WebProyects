@@ -1,0 +1,54 @@
+/*
+ * ¿ Que son los mixins ?
+   un mixin es muy similar a una funcion en javascript, es decir, es algo que puedes reutilizar y tambien le puedes
+   pasar algunos valores
+ * los mixin pueden llevar parametros al igual que las funciones pero si no va a llevar parametros es mejor que no
+   tenga el parentesis vacio
+*/
+
+/*
+// sintaxis y ejemplo de mixins 
+@mixin nuevoMixin {
+    font-size: 3rem;
+    color: $morado;
+    text-transform: uppercase;
+} 
+
+// sintaxis y ejemplo de mixins con parametros 
+@mixin nuevoMixin2($transform, $size) {
+    font-size: $size;
+    color: $morado;
+    text-transform: $transform;
+} 
+*/
+
+// mixin para media queries
+@mixin telefono {
+  @media (min-width: $telefono) {
+    @content; /* esta es lo que se conoce como directiva (es como decirle "inyectalo aqui") 
+    y es muy importante para que soporte las propiedades que se manden entre llaves por ejemplo: 
+        {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;    
+        }*/
+  }
+}
+
+@mixin tablet {
+    @media (min-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin grid($columnas, $espaciado) {
+    display: grid;
+    grid-template-columns: repeat($columnas, 1fr);
+    gap: $espaciado;
+}

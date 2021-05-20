@@ -1,0 +1,20 @@
+/*
+ * de esta manera importamos nuestro archivo de variables y aqui no es necesario poner el guion bajo al principio
+ * nota que el orden de importacion es muy importante!!!!!, por ejemplo variables tiene que ir antes de globales ya que
+   el archivo de globales ya tiene variables, entonces si estuviera primera globales nunca encontraria las variables que
+   esten definidas dentro de ellas
+*/
+@import 'base/normalize';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+@import 'base/variables'; 
+@import 'base/mixins';
+@import 'base/globales';
+@import 'base/utilidades';
+
+@import 'layout/header';
+@import 'layout/video';
+@import 'layout/festival';
+@import 'layout/lineup';
+@import 'layout/galeria';
+@import 'layout/boletos';
+@import 'layout/footer';
